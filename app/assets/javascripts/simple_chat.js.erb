@@ -1,0 +1,15 @@
+var pusher;
+var channel;
+
+function receive_chat(data){
+  console.log(data);
+}
+
+$(function(){
+
+  pusher = new Pusher('<%= Pusher.key %>');
+  pusher.subscribe('chatroom');
+  channel = pusher.channels.channels['chatroom'];
+  channel.bind( 'message', receive_chat );
+
+})
