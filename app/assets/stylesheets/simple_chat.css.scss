@@ -2,4 +2,14 @@
   position: fixed;
   bottom: 0;
   width: 100%;
+
+  input {
+    font-size: 24px;
+  }
+  #chat_input {
+    width: 85%;
+  }
+  input[type=submit] {
+    width: 10%;
+  }
 }
