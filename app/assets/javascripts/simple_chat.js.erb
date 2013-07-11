@@ -2,7 +2,12 @@ var pusher;
 var channel;
 
 function receive_chat(data){
-  console.log(data);
+  // console.log(data);
+  var chats = $('#chats')
+  var new_chat = $('<p>')
+  new_chat.text(data)
+  new_chat.appendTo(chats)
+
 }
 
 $(function(){
