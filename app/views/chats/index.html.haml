@@ -1,5 +1,5 @@
 %h1 Chat home!
 
-= form_tag(root_path, id: 'chat-form') do
+= form_tag(send_chat_path, id: 'chat-form', remote: true) do
   = text_field_tag 'chat_input'
   = submit_tag 'Chat!'
