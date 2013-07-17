@@ -7,8 +7,12 @@
     = javascript_include_tag "http://js.pusher.com/2.1/pusher.min.js"
     = csrf_meta_tags
   %body
+    app
     = ENV['PUSHER_APP']
+    key
     = ENV['PUSHER_KEY']
+    secret
     = ENV['PUSHER_SECRET']
+    key again
     = Pusher.key
     = yield
