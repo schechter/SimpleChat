@@ -11,7 +11,8 @@ function receive_chat(data){
 }
 
 $(function(){
-
+  console.log('<%= Pusher.key %>');
+  console.log('<%= 4+4 %>');
   pusher = new Pusher('<%= Pusher.key %>');
   pusher.subscribe('chatroom');
   channel = pusher.channels.channels['chatroom'];
