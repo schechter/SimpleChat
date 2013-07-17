@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.0.0' #required for Heroku
 gem 'rails', '4.0.0'
 
 gem 'nokogiri'
@@ -8,6 +9,11 @@ gem 'jquery-rails'
 gem 'haml'
 
 gem 'pusher'
+
+group :production do
+  #REQUIRED for Rails 4.0 on Heroku!
+  gem 'rails_12factor'
+end
 
 #the assets group is no more in Rails 4
 gem 'sass-rails', '~> 4.0.0'
@@ -18,9 +24,6 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'turbolinks'
 
 group :development, :test do
-  #testing gems
-  gem 'rb-fsevent'
-
   gem 'pry-rails'
   gem 'pry-debugger'
   gem 'pry-stack_explorer'
