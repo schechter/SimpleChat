@@ -1,5 +1,5 @@
-# Load the rails application
+# Load the Rails application.
 require File.expand_path('../application', __FILE__)
 
-# Initialize the rails application
-SimpleChat::Application.initialize!
+# Initialize the Rails application.
+SimpleChatFour::Application.initialize!

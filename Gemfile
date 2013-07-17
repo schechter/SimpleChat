@@ -1,23 +1,21 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '4.0.0'
 
 gem 'nokogiri'
 gem 'pg'
 gem 'jquery-rails'
 gem 'haml'
-gem 'bcrypt-ruby'
 
 gem 'pusher'
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails'
-  gem 'coffee-rails'
-  gem 'uglifier'
-  gem 'foundation-icons-sass-rails'
-end
+#the assets group is no more in Rails 4
+gem 'sass-rails', '~> 4.0.0'
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.0.0'
+
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'turbolinks'
 
 group :development, :test do
   #testing gems
@@ -34,18 +32,12 @@ group :development, :test do
   gem 'meta_request'
 end
 
-group :test do
-  gem 'factory_girl_rails'
-  gem 'rspec-rails'
-  gem 'shoulda-matchers'
-  gem 'capybara'
-  gem 'launchy'
-  gem 'database_cleaner'
-  gem 'guard-rspec'
-  gem 'faker'
-end
-
 group :development do
   #causes problem in conjunction with rspec test
   gem 'better_errors'
+end
+
+group :doc do
+  # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'sdoc', require: false
 end

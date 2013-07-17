@@ -1,9 +1,9 @@
 !!!
 %html
   %head
-    %title SimpleChat
-    = stylesheet_link_tag    "application", :media => "all"
-    = javascript_include_tag "application"
+    %title SimpleChatFour
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
     = javascript_include_tag "http://js.pusher.com/2.1/pusher.min.js"
     = csrf_meta_tags
   %body
