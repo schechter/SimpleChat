@@ -11,9 +11,12 @@ function receive_chat(data){
 }
 
 $(function(){
-  // console.log('<%= Pusher.key %>');
-  // console.log('<%= 4+4 %>');
-  // pusher = new Pusher('<%= Pusher.key %>');
+  /*
+  * Note that we have moved the pusher creation into the application.html page body.
+  * For some reason Pusher.key can be read there, but not here...
+  * This is a Heroku-specific problem, ideally we'll figure out how to fix it and get our
+  * pusher initialization back into a js file.
+  */
   pusher.subscribe('chatroom');
   channel = pusher.channels.channels['chatroom'];
   channel.bind( 'message', receive_chat );

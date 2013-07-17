@@ -7,7 +7,6 @@
     = javascript_include_tag "http://js.pusher.com/2.1/pusher.min.js"
     = csrf_meta_tags
   %body
-    = Pusher.key
     :javascript
       pusher = new Pusher("#{Pusher.key}");
     = yield
