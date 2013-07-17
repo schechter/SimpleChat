@@ -4,9 +4,9 @@ class ChatsController < ApplicationController
   end
 
   def send_chat
-    puts 'Hello!'
+    # puts 'Hello!'
     puts params
-    puts params[:chat_input]
+    # puts params[:chat_input]
     # puts Pusher.app_id
     # puts Pusher.key
     # puts Pusher.secret

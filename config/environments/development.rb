@@ -26,4 +26,9 @@ SimpleChatFour::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  require 'pusher'
+  Pusher.app_id = ENV['PUSHER_APP']
+  Pusher.key = ENV['PUSHER_KEY']
+  Pusher.secret = ENV['PUSHER_SECRET']
 end
