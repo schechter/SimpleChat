@@ -6,7 +6,7 @@
   #chats
 
   = form_tag(send_chat_path, id: 'chat-form', remote: true) do
-    = select_tag 'channel', options_for_select([['chatroom', 'chatroom'],['Sports', 'sports'],['Today With Tanay', 'todaywithtanay'],['Studio 2','studio2']])
+    = select_tag 'channel', options_for_select([['chatroom', 'chatroom'],['902 Broadway', '902broadway'],['Today With Tanay', 'todaywithtanay'],['Studio 2','studio2']])
     = text_field_tag 'chat_input'
     = submit_tag 'Chat!'
 - else
