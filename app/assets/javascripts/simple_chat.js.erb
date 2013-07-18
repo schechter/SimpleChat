@@ -1,13 +1,41 @@
+var STARTING_CHANNEL = 'chatroom'
 var pusher;
 var channel;
 
 function receive_chat(data){
-  // console.log(data);
   var chats = $('#chats')
+  var new_div = $('<div>')
   var new_chat = $('<p>')
-  new_chat.text(data)
-  new_chat.appendTo(chats)
+  var new_chat_avatar = $('<img>');
+  new_chat.text(data['username'] + ': ' + data['chat_text'])
+  new_chat_avatar.attr('src', data['avatar']);
+  new_div.append(new_chat)
+  new_div.append(new_chat_avatar)
+  chats.append(new_div)
+}
 
+function unsubscribe_all(){
+  var channels = Object.keys(pusher.channels.channels)
+  $.each(channels, function(i, channel){
+    pusher.unsubscribe(channel);
+  })
+  return pusher.channels.channels
+}
+
+function listen_for_messages(channel_name){
+  listening_channel = pusher.channels.channels[channel_name]
+  listening_channel.bind( 'message', receive_chat );
+}
+
+function switch_channel(e){
+  var new_channel = $(this).val();
+  var new_channel_name = $(this).children(":selected").text();
+  unsubscribe_all();
+  pusher.subscribe(new_channel);
+  listen_for_messages(new_channel)
+  var chat_alert = $('<p>');
+  chat_alert.text('You are now on '+ new_channel_name );
+  $('#chats').append(chat_alert)
 }
 
 $(function(){
@@ -17,8 +45,8 @@ $(function(){
   * This is a Heroku-specific problem, ideally we'll figure out how to fix it and get our
   * pusher initialization back into a js file.
   */
-  pusher.subscribe('chatroom');
-  channel = pusher.channels.channels['chatroom'];
-  channel.bind( 'message', receive_chat );
+  pusher.subscribe(STARTING_CHANNEL);
+  listen_for_messages(STARTING_CHANNEL)
+  $('#channel').on('change', switch_channel)
 
 })

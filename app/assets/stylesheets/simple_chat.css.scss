@@ -12,4 +12,15 @@
   input[type=submit] {
     width: 10%;
   }
+  p {
+    display:inline-block;
+  }
+}
+
+#user-info {
+  position:fixed;
+  border: black 1px solid;
+  top: 25px;
+  right: 10px;
+  background-color: grey
 }
