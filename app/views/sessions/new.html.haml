@@ -1,11 +1,11 @@
-Login
-
-= form_tag  sessions_path do
- = label_tag :username
- = text_field_tag :username
- = label_tag :password
- = password_field_tag :password
- = submit_tag
-
-Or Create and account:
-= render partial: 'users/new'
+%h3#log-in
+  Login
+  = form_tag  sessions_path do
+    = label_tag :username
+    = text_field_tag :username
+    = label_tag :password
+    = password_field_tag :password
+    = submit_tag 'Log-In'
+%h3#create-account
+  Or Create and account:
+  = render partial: 'users/new'
