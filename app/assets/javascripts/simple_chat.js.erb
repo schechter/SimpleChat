@@ -2,6 +2,15 @@ var STARTING_CHANNEL = 'chatroom'
 var pusher;
 var channel;
 
+function clear_chat(e){
+  // if (e.target)
+  console.log($(e.target).parent().find($('#chat_input')))
+  var field = $(e.target).parent().find($('#chat_input'))
+  console.log(field)
+  setTimeout(function(){field.val('')},10);
+  // $('#chat_input').val('')
+}
+
 function receive_chat(data){
   var chats = $('#chats')
   var new_div = $('<div>')
@@ -12,7 +21,7 @@ function receive_chat(data){
   new_div.append(new_chat)
   new_div.append(new_chat_avatar)
   chats.append(new_div)
-  $('#chat_input').val('')
+  // $('#chat_input').val('')
   $('#chats-container').scrollTop($('#chats').outerHeight())
 }
 
@@ -49,6 +58,6 @@ $(function(){
   */
   pusher.subscribe(STARTING_CHANNEL);
   listen_for_messages(STARTING_CHANNEL)
-  $('#channel').on('change', switch_channel)
-
+  $('#channel').on('change', switch_channel);
+  $('#chat-form').on('click', $('submit'), clear_chat);
 })
