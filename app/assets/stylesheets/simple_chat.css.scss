@@ -17,12 +17,22 @@
   }
 }
 
+#chats {
+  position:relative;
+  overflow-y:auto;
+}
+
+#chats-container {
+  height: 450px;
+  overflow:scroll;
+}
+
 #user-info {
   position:fixed;
   border: black 1px solid;
   top: 25px;
   right: 10px;
-  background-color: grey
+  background-color: grey;
 }
 
 #log-in{

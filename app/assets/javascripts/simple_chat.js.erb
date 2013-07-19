@@ -12,6 +12,8 @@ function receive_chat(data){
   new_div.append(new_chat)
   new_div.append(new_chat_avatar)
   chats.append(new_div)
+  $('#chat_input').val('')
+  $('#chats-container').scrollTop($('#chats').outerHeight())
 }
 
 function unsubscribe_all(){
